@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>剪贴板测试</title>
+    <script src="js/jquery1.8.3.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+</head>
+<body>
+    <!-- 利用clipboard.js操作pc剪贴板,移动端暂时不支持 -->
+
+    <button class="btn">复制</button>
+    <textarea id="result" style="width: 200px;height:300px;" ></textarea>
+    <script>
+    var clipboard = new Clipboard('.btn', {
+        text: function() {
+            return '我是复制的内容!';
+        }
+    });
+
+    clipboard.on('success', function(e) {
+        $('#result').append('操作结果:成功'+JSON.stringify(e));
+    });
+
+    clipboard.on('error', function(e) {
+        $('#result').append('操作结果:失败,'+JSON.stringify(e));
+    });
+    </script>
+</body>
+</html>
