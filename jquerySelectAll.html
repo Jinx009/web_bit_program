@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jquery checkbox 全选测试</title>
+    <script src="js/jquery1.8.3.min.js"></script>
+    <script>
+    function selectAll(){
+        $('input[name="test"]').each(function(){
+            $(this).prop('checked',true);
+        })
+    }
+     function cancleAll(){
+         $('input[name="test"]').each(function(){
+             $(this).prop('checked',false);
+         })
+     }
+    </script>
+</head>
+<body>
+    <input type="button" value="点我全选" onclick="selectAll();" >
+    <input type="button" value="点我全不选" onclick="cancleAll();" >
+
+    <input type="checkbox" name="test" >
+    <input type="checkbox" name="test" >
+    <input type="checkbox" name="test" >
+    <input type="checkbox" name="test" >
+    <input type="checkbox" name="test" >
+
+</body>
+</html>
