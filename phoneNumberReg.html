@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>中国通用手机号码正则校验</title>
+    <script src="js/jquery1.8.3.min.js"></script>
     <script>
-
+        var telReg = /^0?1[3|4|5|7|8][0-9]\d{8}$/; //手机号正则13,14,15,17,18
+        function checkPhone(){
+            var value = $('#test').val();
+            if(!telReg.test(value)){
+                alert('手机号码校验失败!');
+            }else{
+                alert('手机号码合法!');
+            }
+        }
     </script>
 </head>
 <body>
-
+    <input type="tel" placeholder="请输入手机号" id="test" >
+    <input type="button" value="校验手机号" onclick="checkPhone();" >
 </body>
 </html>
