@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js操作input中光标位置</title>
+    <script src="js/jquery1.8.3.min.js"></script>
+    <script>
+        /**
+         * 获取当前光标位置
+         * @param ctrl
+         * @returns {number}
+         */
+        function getCursortPosition(element) {
+            var CaretPos = 0;
+            if (document.selection) {//支持IE
+                element.focus();
+                var Sel = document.selection.createRange();
+                Sel.moveStart('character', -element.value.length);
+                CaretPos = Sel.text.length;
+            }
+            else if (element.selectionStart || element.selectionStart == '0')//支持firefox
+                CaretPos = element.selectionStart;
+            return (CaretPos);
+        }
+        /**
+         * 设置光标位置
+         * @param ctrl
+         * @param pos
+         */
+        function setCaretPosition(element, pos){
+            if(element.setSelectionRange)
+            {
+                element.focus();
+                element.setSelectionRange(pos,pos);
+            }
+            else if (element.createTextRange) {
+                var range = element.createTextRange();
+                range.collapse(true);
+                range.moveEnd('character', pos);
+                range.moveStart('character', pos);
+                range.select();
+            }
+        }
+        /**
+         * 获取测试元素光标位置
+         */
+        function getPotision(element){
+            console.log(getCursortPosition(element));
+        }
+        /**
+         * 测试元素光标向前移动一位
+         */
+        function setPotision(element){
+            var nowIndex = getCursortPosition(element);
+            setCaretPosition(element,nowIndex-1);
+            console.log(getCursortPosition(element));
+        }
+    </script>
+</head>
+<body>
+    <input type="text" value="1234567" id="test" oninput="getPotision(this);" onkeyup="setPotision(this);" >
+    <p>输入过程中console.log(当前光标位置),鼠标弹起console.log(光标向前移动一位)</p>
+</body>
+</html>
