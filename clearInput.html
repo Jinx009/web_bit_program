@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>输入框清空按钮</title>
+    <script src="js/jquery1.8.3.min.js"></script>
+    <script>
+    /**
+     * 校验当前输入框的值,如果不为空显示清空按钮
+     * @param element
+     */
+    function checkInput(element){
+        var value = $(element).val();
+        if(value!=null&&''!=value)
+            $(element).parent().parent().children().children('.button').removeClass('none');
+        else
+            $(element).parent().parent().children().children('.button').addClass('none');
+    }
+    /**
+     * 清空输入框内容
+     * @param element
+     */
+    function clearInput(element){
+        $(element).parent().parent().children().children('input').val('');
+        $(element).addClass('none');
+    }
+    </script>
+    <style>
+    .none{
+        display: none;
+    }
+    .height-20{
+        height: 20px;;
+    }
+    .button{
+        color: red;
+        font-size: 18px;
+        width: 100px;
+        height: 18px;;
+        border: 1px solid red;
+        border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <input type="text" onkeyup="checkInput(this);" >
+        </div>
+        <div class="height-20" ></div>
+        <div>
+            <a class="none button" onclick="clearInput(this);" >clear input</a>
+        </div>
+    </div>
+</body>
+</html>
