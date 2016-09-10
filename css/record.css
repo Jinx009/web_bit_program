@@ -1,0 +1,46 @@
+body {
+    background:#fff;
+}
+#top{
+    position: absolute;
+    border: 0px;
+    width: 200px;
+    left: 160px;
+    top:20px;
+}
+.carousel {
+    width: 530px;
+    height: 600px;
+    position: relative;
+    margin: 50px auto;
+    border:1px solid gainsboro;
+}
+
+.carousel img {
+    position: absolute;
+    border: 0px
+}
+
+.carouselLeft, .carouselRight {
+    position: absolute;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.carouselLeft {
+    width: 33px;
+    height: 72px;
+    top: 100px;
+    left: 0px;
+    background: url(../images/toleft.png);
+    _background: url(../images/toleft.gif)
+}
+
+.carouselRight {
+    width: 33px;
+    height: 72px;
+    top: 100px;
+    right: 0px;
+    background: url(../images/toright.png);
+    _background: url(../images/toright.gif)
+}
