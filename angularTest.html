@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS测试程序</title>
+    <script src="angular/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('modelController', function($scope) {
+            $scope.userNameTagart = 'Name';
+            $scope.userNameValue = 'Jinx';
+            $scope.gray = 'gray';
+            $scope.test = 'testValue';
+
+            console.log($scope.test)
+        });
+    </script>
+    <style>
+        .gray{
+            background: gray;
+            width: 200px;
+            height:20px;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="modelController" >
+    <!-- 绑定值 -->
+    <p>{{userNameTagart}} is {{userNameValue}}</p>
+    <p ng-bind="userNameValue" ></p>
+    <!-- 绑定确实焦点事件 -->
+    <div>
+        <input ng-blur="count = count + 1" ng-init="count=0" placeholder="{{count}}" />
+    </div>
+    <!-- checkbox全选 -->
+    <div>
+        <input type="checkbox" ng-model="all"  ><br>
+        <input type="checkbox" ng-checked="all" ><br>
+        <input type="checkbox" ng-checked="all" ><br>
+        <input type="checkbox" ng-checked="all" ><br>
+    </div>
+    <!-- css绑定 -->
+    <div ng-class="gray" ></div>
+    <!-- 取值 -->
+    <div>
+        <input type="text" ng-model="test"  >
+    </div>
+    <!-- 链接绑定事件-->
+    <a ng-href="https://www.baidu.com" target="_blank" >Click me</a>
+</body>
+</html>
+
+
+
