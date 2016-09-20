@@ -9,14 +9,8 @@
     <link rel="stylesheet" type="text/css" href="css/pace.css" />
     <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css" />
     <script>
-        $(function(){
-            paceOptions = {
-                ajax: true,
-                restartOnRequestAfter: false,
-                elements: false
-            };
-        })
-        function getXml() {
+        function getXml(){
+            //ajax目前表示测试失败
             $.ajax({
                 url:'xml/student.xml',
                 type: 'GET',

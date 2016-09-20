@@ -6,11 +6,9 @@
   -moz-user-select: none;
   user-select: none;
 }
-
 .pace-inactive {
   display: none;
 }
-
 .pace .pace-progress {
   background: #29d;
   position: fixed;
