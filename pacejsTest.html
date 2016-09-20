@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>pace.js测试程序</title>
+    <script src="js/jquery1.8.3.min.js"></script>
+    <script src="js/pace.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/pace.css" />
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css" />
+    <script>
+        $(function(){
+            paceOptions = {
+                ajax: true,
+                restartOnRequestAfter: false,
+                elements: false
+            };
+        })
+        function getXml() {
+            $.ajax({
+                url:'xml/student.xml',
+                type: 'GET',
+                dataType: 'xml',
+                timeout: 1000,
+                error: function(xml){
+                    alert('Error loading XML document'+xml);
+                },
+                success: function(xml) {
+                    $(xml).find('student').each(function() {
+                        console.log($(this).children('name').text());
+                    });
+                }
+            });
+        }
+    </script>
+    <style>
+        .bg{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 90;
+            padding-top: 20px;
+        }
+        .float{
+            top: 0;
+            left: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            background: white;
+            opacity: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg"  >
+        <ul class="list-group">
+            <li onclick="getXml();" class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div>
+    <div class="float" ></div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/jquery1.8.3.min.js"></script>
+    <title>JSONP测试程序</title>
+    <script>
+        var lng,lat;
+        var address = "静安寺";
+        var url = "http://api.map.baidu.com/geocoder/v2/?address="+address+"&output=json&ak=kDEUCGlk0qyoUMC68Klkamrq&city=上海";
+
+        $.ajax({
+            url: url,
+            dataType: "jsonp",
+            jsonp: "callback",
+            success: function (data){
+                lat = data.result.location.lat;
+                lng = data.result.location.lng;
+                console.log(lat+'--'+lng);
+            }
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>
