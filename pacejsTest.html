@@ -9,11 +9,14 @@
     <link rel="stylesheet" type="text/css" href="css/pace.css" />
     <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css" />
     <script>
+        paceOptions = {
+            elements: true
+        };
         function getXml(){
             Pace.start();
             $.ajax({
                 url:'xml/student.xml',
-                type: 'GET',
+                type: 'POST',
                 dataType: 'xml',
                 timeout: 1000,
                 error: function(xml){
@@ -23,9 +26,9 @@
                     $(xml).find('student').each(function() {
                         console.log($(this).children('name').text());
                     });
-                    Pace.stop();
                 }
             });
+            Pace.stop();
         }
     </script>
     <style>
