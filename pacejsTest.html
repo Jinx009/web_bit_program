@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css" />
     <script>
         function getXml(){
-            //ajax目前表示测试失败
+            Pace.start();
             $.ajax({
                 url:'xml/student.xml',
                 type: 'GET',
@@ -23,6 +23,7 @@
                     $(xml).find('student').each(function() {
                         console.log($(this).children('name').text());
                     });
+                    Pace.stop();
                 }
             });
         }
