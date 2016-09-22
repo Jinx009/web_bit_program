@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>一些javascript测试用例</title>
+    <script>
+        (function(){
+            var a = 2;
+            var add = function(b){
+                return b+1;
+            }
+            window.$ = add(a);
+        })();
+    </script>
+</head>
+<body>
+    <script>
+        console.log($);
+    </script>
+</body>
+</html>
