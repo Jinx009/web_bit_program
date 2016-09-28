@@ -7,15 +7,9 @@
     <script src="js/jquery1.8.3.min.js"></script>
     <script type="text/javascript" src="IDCardCheck.js"></script>
     <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css" />
-    <script>
-        function checkID(){
-            var _id = document.getElementById('_id');
-            validId(_id);
-        }
-    </script>
 </head>
 <body>
-    <input type="text" id="_id" class="form-control" maxlength="18" >
-    <a class="btn btn-success" value="校验" onclick="checkID();" >校验</a>
+    <input type="text" id="card_no" class="form-control" maxlength="18" >
+    <a class="btn btn-success" value="校验" onclick="checkCard();" >校验</a>
 </body>
 </html>
