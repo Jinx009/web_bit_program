@@ -8,6 +8,7 @@ var vcity={ 11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",
 
 checkCard = function() {
     var card = document.getElementById('card_no').value;
+    card = card.toUpperCase();
     //是否为空  
     if(card === '') {
         alert('请输入身份证号，身份证号不能为空');
