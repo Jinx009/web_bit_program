@@ -29,6 +29,6 @@ function checkCard(bankCardNum){
     if (modulus == 0){
         return "success";
     } else{
-        return "银行卡号不合法!";
+        return "银行卡号不合法!";//这个卡号校验不过,很奇怪6214 8512 1532 7632
     }
 }
