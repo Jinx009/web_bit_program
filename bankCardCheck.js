@@ -28,8 +28,7 @@ function checkCard(bankCardNum){
     console.log(modulus);
     if (modulus == 0){
         return "success";
-    }
-    else{
+    } else{
         return "银行卡号不合法!";
     }
 }

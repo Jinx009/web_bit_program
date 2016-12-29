@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Title</title>
+    <script src="js/jquery1.8.3.min.js"></script>
+    <script>
+        $(window).on("hashchange", function() {//兼容ie8+和手机端
+            func();
+        });
+        function func(){
+            console.log(window.location.hash);
+            var hash = window.location.hash;
+            hash = hash.substr(1);
+            console.log(hash);
+            if('33'==hash){
+                location.hash = '35';
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
