@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.min.js"></script>
+    <script src="raphael.js" ></script>
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <script>
+        var status = 1;
+        var paper;
+        var array = new Array();
+        $(function(){
+            paper = new Raphael(document.getElementById("paper"),800, 800);
+            paper.image('../images/WechatIMG1.jpeg',0,0,800,800)
+
+        })
+        var x;var y;
+        function drawSvg(){
+            status = 2;
+            var e = event || window.event;
+            x = e.clientX;y =  e.clientY;
+        }
+        function draw(){
+            if(2==status){
+                var e = event || window.event;
+                var dx = e.clientX; var dy = e.clientY;
+                if(dx!=x||y!=dy){
+                    paper.path("M  "+x+" "+y+" L "+dx+" "+dy+"").attr({stroke:"green",fill:"red","stroke-width":8})
+                    x = dx;y = dy;
+                    var obj = {};
+                    obj.x = x;obj.y = y;
+                    array.push(obj);
+                }
+            }
+        }
+        function changeStatus(){
+            console.log(JSON.stringify(array));
+            status = 1;
+        }
+    </script>
+</head>
+<body onmousedown="drawSvg();" onmouseup="changeStatus();" onmousemove="draw()">
+    <div id="paper" style="background:black;width:800px;height:800px;"></div>
+</body>
+</html>

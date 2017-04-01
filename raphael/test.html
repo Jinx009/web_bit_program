@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery1.8.3.min.js" ></script>
+    <script src="raphael.js"></script>
+</head>
+<body>
+<div id="paper" style="width:600px;height:600px;margin-top: 80px;margin-left: 200px;"></div>
+<script>
+    var paper;
+    $(function(){
+        paper = new Raphael(document.getElementById("paper"),600, 600);
+        paper.image('view_back.jpg',0,0,600,600);
+
+        paper.path('M107,84  C221,147,259,182,296,138').attr({stroke:'rgb(207,130,178)','stroke-width':10});
+        paper.path('M96,459  C159,346,196,307,144,273').attr({stroke:'rgb(117,158,209)','stroke-width':15});
+        paper.path('M140,480  C268,261,279,207,354,252').attr({stroke:'rgb(234,0,10)','stroke-width':10});
+        paper.path('M86,121  C325,255,379,256,327,363').attr({stroke:'rgb(150,202,117)','stroke-width':10});
+        paper.path('M463,71  C354,267,333,328,259,328').attr({stroke:'rgb(41,94,187)','stroke-width':10});
+        paper.path('M503,96  C431,218,399,257,425,282').attr({stroke:'rgb(188,218,105)','stroke-width':15});
+        paper.path('M475,484 C384,432,325,383,290,440').attr({stroke:'rgb(242,112,112)','stroke-width':15});
+        paper.path('M497,435 C306,327,252,307,256,248').attr({stroke:'rgb(178,83,159)','stroke-width':8});
+        paper.path('M 95,105  L 597,381').attr({stroke:'rgb(28,117,59)','stroke-width':20})
+        paper.path('M 483,82  L 190,597').attr({stroke:'rgb(188,25,31)','stroke-width':30})
+        paper.path('M 0,189   L 487,462').attr({stroke:'rgb(20,47,89)','stroke-width':30})
+        paper.path('M 120,470 L 384,0').attr({stroke:'rgb(111,43,103)','stroke-width':30})
+        paper.text(119,490,'123').attr({stroke:'rgb(207,130,178)'});
+
+    })
+
+</script>
+</body>
+</html>

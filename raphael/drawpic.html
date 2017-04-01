@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.min.js"></script>
+    <script src="raphael.js" ></script>
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <script>
+        var status = 1;
+        var paper;
+        var array = new Array();
+        $(function(){
+            paper = new Raphael(document.getElementById("paper"),600, 600);
+            paper.image('../images/view_background.jpeg',0,0,800,600)
+        })
+
+    </script>
+</head>
+<body>
+<div id="paper" style="width:600px;height:600px;margin-top: 100px;margin-left: 200px;"></div>
+</body>
+</html>

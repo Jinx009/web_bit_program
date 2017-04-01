@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Raphael</title>
+    <script src="jquery.min.js"></script>
+    <script src="raphael.js"></script>
+    <script>
+        var paper;
+        var state = false;
+        var e;
+        $(function() {
+            paper = new Raphael("holder",640,480);
+//            var path = paper.path("c 10,10 10,300 10,400");
+            paper.path('M20,370 C40,270 100,220 180,280 S320,290 340,190').attr('stroke','red');
+
+        })
+    </script>
+</head>
+<body>
+<div id="holder"></div>
+
+</body>
+</html>
+
+

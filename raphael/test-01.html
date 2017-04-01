@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Raphael</title>
+    <script src="jquery.min.js"></script>
+    <script src="raphael.js"></script>
+    <script>
+        var paper;
+        var state = false;
+        var e;
+        $(function()
+        {
+            paper = new Raphael("holder",640,480);
+            var path = paper.path("M 10,10 L 10,300");
+            var over = paper.path("M 10 10 L 316 248").attr("stroke","red");
+            var circle = paper.circle(316, 248, 5).attr({stroke : "none",fill : "red"});
+            e = paper.ellipse(10, 10, 7, 3).attr({stroke : "none",fill : "red"});
+            e.onAnimation(function()
+            {
+                console.log(this)
+                var x = this.attr("cx");
+                var y = this.attr("cy");
+                over.attr({path : "M 316,248L" +x+ "," +y+ "",stroke : "red"});
+            });
+        })
+        function start()
+        {
+            if(state)
+            {
+                e.animate({"cx":10,"cy":10},3000);
+                state = false;
+            }
+            else
+            {
+                e.animate({"cx":10,"cy":300},3000);
+                state = true;
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div id="holder"></div>
+<input type="button"  value="click"  onclick="start()" >
+</body>
+</html>
+
+
