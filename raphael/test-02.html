@@ -12,7 +12,34 @@
         $(function() {
             paper = new Raphael("holder",640,480);
 //            var path = paper.path("c 10,10 10,300 10,400");
-            paper.path('M20,370 C40,270 100,220 180,280 S320,290 340,190').attr('stroke','red');
+            var c = paper.path("M107,84  C221,147,259,182,296,138").attr({
+                "stroke-width": 10
+            });
+            var c1 = paper.path(drawArrow(c.id));
+            function drawArrow(line_id)
+            {
+                var size = 5;
+                //analysis line
+                var line = paper.getById(line_id);
+                //get last points
+                var length = line.attrs.path.length;
+                var x1 = line.attrs.path[length-1][1];//单线段起点
+                var y1 = line.attrs.path[length-1][2];//单线段起点
+                var x2 = line.attrs.path[length-2][1];//单线段终点
+                var y2 = line.attrs.path[length-2][2];//单线段终点
+                //get last angle
+                var angle = Raphael.angle(x1, y1, x2, y2);//API方法获取角度，原直线倾斜度
+                var angle_45_one = Raphael.rad(angle - 45);//API方法转变为弧度
+                var angle_45_two = Raphael.rad(angle + 45);//API方法转变为弧度
+                //arrow points求出箭头的双向点
+                var angle_x1 = x1 - Math.cos(angle_45_one) * size;
+                var angle_y1 = y1 - Math.sin(angle_45_one) * size;
+                var angle_x2 = x1 - Math.cos(angle_45_two) * size;
+                var angle_y2 = y1 - Math.sin(angle_45_two) * size;
+                //return
+                var result = ["M",angle_x1,angle_y1, "L", x1,y1,"L",angle_x2, angle_y2];
+                return result;
+            }
 
         })
     </script>
