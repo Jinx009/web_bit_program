@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>绘制箭头测试</title>
+    <script src="jquery.min.js"></script>
+    <script src="raphael.js"></script>
+    <script>
+        $(function () {
+            $('body').append('<svg>'+
+                    '<defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">'+
+                    '<marker id="raphael-marker-endclassic-red" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="" xlink:href="#raphael-marker-classic" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="red" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker>'+
+                    '<marker id="raphael-marker-endclassic-green" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="" xlink:href="#raphael-marker-classic" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="green" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker>'+
+                    '</defs>'+
+                    '</svg>');
+            // 在坐标（10,50）创建宽320，高200的画布
+
+            var paper = Raphael(0, 0, 3200, 2000);
+//            $('defs').append('<marker id="raphael-marker-endclassic-green” markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-classic" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="green" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker>');
+
+            var line1 = paper.path("M100,200 L 200,400").attr({
+
+                stroke: "red",
+
+                "stroke-width": "2px",
+
+                "arrow-end": "classic-wide-long"
+
+            });
+            var line2 = paper.path("M500,200 L 600,400").attr({
+
+                stroke: "blue",
+
+                "stroke-width": "2px",
+
+                "arrow-end": "classic-wide-long"
+
+            });
+
+            if (Raphael.svg) {
+
+                line1.node.attributes["marker-end"].value = "url(#raphael-marker-endclassic-red)";
+
+                line2.node.attributes["marker-end"].value = "url(#raphael-marker-endclassic-green)";
+            }
+
+            var c = paper.path("M10 10L100 10").attr({
+                'arrow-end':'classic-wide-long',
+                stroke: "#fff",
+                "stroke-width": 2
+            });
+
+            var c = paper.path("M10 30L100 30").attr({
+                'arrow-end':'block-wide-long',
+                stroke: "#f00",
+                "stroke-width": 2
+            });
+
+            var c = paper.path("M10 50L100 50").attr({
+                'arrow-end':'open-wide-long',
+                stroke: "#ff0",
+                "stroke-width": 2
+            });
+
+            var c = paper.path("M10 70L100 70").attr({
+                'arrow-end':'oval-wide-long',
+                stroke: "#0f0",
+                "stroke-width": 2
+            });
+
+            var c = paper.path("M10 90L100 90").attr({
+                'arrow-end':'diamond-wide-long',
+                stroke: "#0ff",
+                "stroke-width": 2
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="paper">.
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>绘制箭头测试</title>
+    <script src="jquery.min.js" ></script>
+    <script src="query-ui.min.js" ></script>
+    <script src="raphael.js" ></script>
+    <script>
+        var paper;
+        $(function()
+        {
+            paper = Raphael("paper",500,500);
+            var path = paper.path("M 50 60 80 130");
+            var path_arrow = paper.path(drawArrow(path.id));//生成的每一块图形都拥有唯一标示的id
+            //另外一个API自带的线的arrow-end属性在多数情况下试用
+            //效果等同于生成path_arrow 示例： path.attr({'arrow-end':'classic-wide-long'})
+        })
+        /*
+         * 自己绘制线段箭头
+         */
+        function drawArrow(line_id)
+        {
+            var size = 5;
+            //analysis line
+            var line = paper.getById(line_id);
+            //get last points
+            var length = line.attrs.path.length;
+            var x1 = line.attrs.path[length-1][1];//单线段起点
+            var y1 = line.attrs.path[length-1][2];//单线段起点
+            var x2 = line.attrs.path[length-2][1];//单线段终点
+            var y2 = line.attrs.path[length-2][2];//单线段终点
+            //get last angle
+            var angle = Raphael.angle(x1, y1, x2, y2);//API方法获取角度，原直线倾斜度
+            var angle_45_one = Raphael.rad(angle - 45);//API方法转变为弧度
+            var angle_45_two = Raphael.rad(angle + 45);//API方法转变为弧度
+            //arrow points求出箭头的双向点
+            var angle_x1 = x1 - Math.cos(angle_45_one) * size;
+            var angle_y1 = y1 - Math.sin(angle_45_one) * size;
+            var angle_x2 = x1 - Math.cos(angle_45_two) * size;
+            var angle_y2 = y1 - Math.sin(angle_45_two) * size;
+            //return
+            var result = ["M",angle_x1,angle_y1, "L", x1,y1,"L",angle_x2, angle_y2];
+            return result;
+        }
+    </script>
+
+</head>
+
+<body>
+<div id="paper">.
+</div>
+</body>
+</html>
