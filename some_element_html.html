@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>just for temp test</title>
+
+    <base href="http://www.w3school.com.cn/i/" />
+    <base target="_blank" />
+</head>
+<body>
+    <pre>
+        1111   1111111
+        222222    22222
+        &nbsp;222
+        &lt;111
+    </pre>
+
+    <!-- 自带下划线 -->
+    <p>
+        <abbr title="etcetera">etc.</abbr>
+        <acronym title="World Wide Web">WWW</acronym>
+    </p>
+
+    <!-- 文章囊括 -->
+    <article>
+        <h1>Internet Explorer 9</h1>
+        <p>Windows Internet Explorer 9（简称 IE9）于 2011 年 3 月 14 日发布.....</p>
+    </article>
+
+    <!-- 插入音频 -->
+    <audio src="/horse.ogg" controls="controls">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- 从右向左输出-->
+    <bdo dir="rtl">
+        Here is some Hebrew text
+    </bdo>
+
+    <!-- canvas -->
+    <canvas id="myCanvas">your browser does not support the canvas tag </canvas>
+
+    <script type="text/javascript">
+        var canvas=document.getElementById('myCanvas');
+        var ctx=canvas.getContext('2d');
+        ctx.fillStyle='#FF0000';
+        ctx.fillRect(0,0,80,100);
+    </script>
+
+
+    This text contains
+    <sub>subscript</sub>
+    <br />
+    This text contains
+    <sup>superscript</sup>
+
+    <!-- input and search -->
+    <input list="cars" />
+    <datalist id="cars">
+        <option value="BMW">
+        <option value="Ford">
+        <option value="Volvo">
+    </datalist>
+
+    <dl>
+        <dt>计算机</dt>
+        <dd>用来计算的仪器 ... ...</dd>
+        <dt>显示器</dt>
+        <dd>以视觉方式显示信息的装置 ... ...</dd>
+    </dl>
+
+    <p>一打有 <del>二十</del> <ins>十二</ins> 件。</p>
+
+    <details>
+        <summary>Copyright 2011.</summary>
+        <p>All pages and graphics on this web site are the property of W3School.</p>
+    </details>
+
+    <dir>
+        <li>html</li>
+        <li>xhtml</li>
+        <li>css</li>
+    </dir>
+
+
+    <embed src="/helloworld.swf" />
+
+    <form>
+        <fieldset>
+            <legend>健康信息</legend>
+            身高：<input type="text" />
+            体重：<input type="text" />
+        </fieldset>
+    </form>
+
+    <meter value="3" min="0" max="10">十分之三</meter>
+    <meter value="0.6">60%</meter>
+
+    <ol start="50">
+        <li>咖啡</li>
+        <li>牛奶</li>
+        <li>茶</li>
+    </ol>
+
+    <select>
+        <optgroup label="Swedish Cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+        </optgroup>
+        <optgroup label="German Cars">
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </optgroup>
+    </select>
+
+    <p>Do not forget to buy <mark>milk</mark> today.</p>
+
+    <!-- 播放带有字幕的视频 -->
+    <video width="320" height="240" controls="controls">
+        <source src="forrest_gump.mp4" type="video/mp4" />
+        <source src="forrest_gump.ogg" type="video/ogg" />
+        <track kind="subtitles" src="subs_chi.srt" srclang="zh" label="Chinese">
+        <track kind="subtitles" src="subs_eng.srt" srclang="en" label="English">
+    </video>
+
+
+</body>
+</html>
