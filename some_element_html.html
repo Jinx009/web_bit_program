@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>just for temp test</title>
-
+    <script src="js/jquery1.8.3.min.js" ></script>
     <base href="http://www.w3school.com.cn/i/" />
     <base target="_blank" />
+    <script>
+        function goLoad(){
+            var item = {};
+            item.id = 3;
+            item.insuredHospitalRelationId = 456;
+            var htmlStr =   '<tr><th>' + item.outpatientSno +'</th><th>' + item.registerTime + '</th>' +
+                    '<th>' + item.treatTime + '</th><th>' + item.hospitalName + '</th>' +
+                    '<th>' + item.hospitalCode + '</th><th>' + item.medicalType + '</th><th>' + item.creator + '</th>' +
+                    '<th>' + item.gmtCreated + '</th><th>' + item.gmtModified + '</th>' +
+                    '<th>' + item.modifier + '</th><th>' + item.isDeleted + '</th><th>' + item.patientId + '</th><th>' + item.hospitalId + '</th>' +
+                    '<th>' + item.insuredHospitalRelationId + '</th><th id="down'+item.id+'"></th></tr>';
+            $('#test').html(htmlStr);
+        }
+
+
+    </script>
 </head>
-<body>
+<body onload="goLoad();" >
+
+    <div id="test" ></div>
     <pre>
         1111   1111111
         222222    22222
