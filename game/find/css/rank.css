@@ -1,0 +1,127 @@
+@import url(reset.css);
+.rank-box {
+  position: absolute;
+  top: 20px;
+  left: 7%;
+  width: 86%;
+  margin: 0 auto;
+  font-size: 16px;
+  opacity: 0;
+  display: none;
+  margin-top: 20px;
+  background-color: #fff;
+  z-index: 70;
+  border-radius: 25px;
+  overflow: hidden; }
+  .rank-box .close {
+    width: 20px;
+    height: 20px;
+    background: url("./img/close.png") no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    padding: 5px;
+    right: 12px;
+    top: 6px;
+    z-index: 71; }
+
+.rank {
+  position: relative; }
+  .rank li {
+    list-style-type: none; }
+  .rank li:nth-child(odd) {
+    background-color: #FFECEC; }
+  .rank h3 {
+    border-bottom: 1px solid #aaa;
+    color: red;
+    padding: 12px; }
+  .rank .data-box {
+    position: relative;
+    height: 70px; }
+    .rank .data-box .rank-num {
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width: 20%;
+      display: inline-block;
+      text-align: center;
+      color: #F86565;
+      font-size: 20px;
+      font-family: arial; }
+    .rank .data-box .headImg {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 20%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width: 15%;
+      max-width: 64px; }
+      .rank .data-box .headImg img {
+        border-radius: 50%;
+        width: 100%; }
+    .rank .data-box .data {
+      width: 55%;
+      height: 70px;
+      position: absolute;
+      left: 45%; }
+      .rank .data-box .data .name {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 92px;
+        overflow: hidden;
+        wrap-space: normal;
+        text-overflow: ellipsis; }
+      .rank .data-box .data .score {
+        position: absolute;
+        top: 50%;
+        right: 24px;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%); }
+      .rank .data-box .data .win {
+        position: absolute;
+        right: 12px;
+        bottom: 5px;
+        font-size: 14px; }
+
+@-webkit-keyframes appear {
+  from {
+    margin-top: 20px;
+    display: block;
+    opacity: 0; }
+  to {
+    opacity: 1;
+    margin-top: 40px; } }
+@keyframes appear {
+  from {
+    margin-top: 20px;
+    opacity: 0; }
+  to {
+    opacity: 1;
+    margin-top: 40px; } }
+@-webkit-keyframes hide {
+  from {
+    margin-top: 40px;
+    opacity: 1; }
+  to {
+    display: none;
+    margin-top: 20px;
+    opacity: 0; } }
+@keyframes hide {
+  from {
+    margin-top: 40px;
+    opacity: 1; }
+  to {
+    margin-top: 20px;
+    opacity: 0; } }
+.appear-box {
+  -webkit-animation: appear 2s forwards;
+  animation: appear 2s forwards; }
+
+.hide-box {
+  -webkit-animation: hide 2s forwards;
+  animation: hide 2s forwards; }
+
+/*# sourceMappingURL=rank.css.map */

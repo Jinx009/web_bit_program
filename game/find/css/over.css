@@ -1,0 +1,99 @@
+@import url(reset.css);
+html, body {
+  width: 100%;
+  height: 100%; }
+
+.over-box {
+  height: 100%;
+  display: none;
+  position: absolute;
+  z-index: 67;
+  width: 100%;
+  left: 0;
+  top: 0; }
+  .over-box .top-hint {
+    background-color: #f5a623;
+    padding: 6px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px; }
+    .over-box .top-hint img {
+      vertical-align: bottom;
+      width: 23px; }
+  .over-box .data-box {
+    width: 100%;
+    position: relative; }
+    .over-box .data-box .pic-box {
+      width: 300px;
+      height: 260px;
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%); }
+      .over-box .data-box .pic-box .over-text {
+        position: absolute;
+        right: 6px;
+        color: #000;
+        font-size: 14px; }
+      .over-box .data-box .pic-box .over-bg {
+        position: absolute;
+        display: block;
+        width: 300px;
+        height: 260px; }
+      .over-box .data-box .pic-box .badge {
+        width: 138px;
+        height: 138px;
+        position: absolute;
+        top: -22px;
+        left: 7px; }
+      .over-box .data-box .pic-box .left-box {
+        position: absolute;
+        top: 100px;
+        left: 40px;
+        text-align: center; }
+        .over-box .data-box .pic-box .left-box .headImg {
+          width: 60px;
+          height: 60px;
+          background-size: cover;
+          border-radius: 50%;
+          border: 3px solid #000; }
+        .over-box .data-box .pic-box .left-box .badge-text {
+          font-size: 16px; }
+      .over-box .data-box .pic-box .right-box {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        text-align: center; }
+        .over-box .data-box .pic-box .right-box .label-score, .over-box .data-box .pic-box .right-box .label-max-score {
+          font-size: 18px;
+          color: #000; }
+        .over-box .data-box .pic-box .right-box .score, .over-box .data-box .pic-box .right-box .max-score {
+          font-size: 16px; }
+        .over-box .data-box .pic-box .right-box .label-max-score {
+          background-position: left center;
+          background-repeat: no-repeat;
+          padding-left: 23px;
+          background-size: 20px 20px; }
+      .over-box .data-box .pic-box .data-text {
+        position: absolute;
+        left: 50%;
+        bottom: 20%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%); }
+  .over-box .menu {
+    position: absolute;
+    width: 90%;
+    bottom: 124px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    height: 30px;
+    text-align: center; }
+    .over-box .menu span {
+      display: inline-block;
+      width: 130px; }
+      .over-box .menu span img {
+        width: 100%; }
+
+/*# sourceMappingURL=over.css.map */

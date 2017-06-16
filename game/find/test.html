@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>test</title>
+    <script src="../../js/jquery1.8.3.min.js" ></script>
+    <style>
+        .hehe{
+            background:url('images/persons.png');
+            /*background-repeat:no-repeat;*/
+            background-position:-500px -1px;
+            height:100%;
+            width:100%;
+            /*opacity: 0.5;*/
+            z-index: 9;
+            position: fixed;
+            left: 0;
+            top:0;
+        }
+        .test{
+            z-index: -11;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 200px;
+            top: 10px;
+        }
+        .test1{
+            z-index: 11;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 200px;
+            top: 10px;
+        }
+    </style>
+    <script>
+        function changeBg(){
+            console.log('1')
+            $('body').css('background-position','-1000px -1px');
+        }
+    </script>
+</head>
+<body>
+    <div class="hehe" ></div>
+    <img class="test" src="images/badge_1.png" style="border: 2px solid red;border-radius: 40px;" />
+    <input type="button" onclick="changeBg();">
+    <div class="test1"  onclick="javascript:alert('1')"></div>
+</body>
+</html>

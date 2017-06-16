@@ -1,0 +1,101 @@
+@import url("reset.css");
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.start-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: white;
+  z-index: 100;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  
+  background-repeat: no-repeat;
+  background-position: center 40%; }
+  @media screen and (min-width: 768px) {
+    .start-img .start-img {
+       } }
+  .start-img .start-text {
+    color: #c41900;
+    position: absolute;
+    bottom: 40%;
+    font-size: 22px;
+    width: 100%;
+    text-align: center; }
+
+.background-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .8;
+  display: none;
+  z-index: 65;
+  background-color: #000; }
+
+.foot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 62;
+  overflow: hidden; }
+  .foot .foot-box {
+    z-index: 90;
+    height: 100%;
+    position: relative; }
+    .foot .foot-box span {
+      color: #fff;
+      font-size: 16px; }
+    .foot .foot-box .foot-headImg {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 3px solid #000;
+      left: 12px;
+      top: 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%); }
+    .foot .foot-box .max-score {
+      position: absolute;
+      left: 45%;
+      top: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%); }
+    .foot .foot-box .win {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%); }
+  .foot .bg {
+    z-index: 89;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .5; }
+
+.share-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 80;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  padding: 50% 10px 50%;
+  display: none; }
+
+/*# sourceMappingURL=game.css.map */

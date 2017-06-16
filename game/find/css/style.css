@@ -1,0 +1,54 @@
+.copyright{position:absolute; z-index:66; width:100%; bottom:0px; left:0px; text-align:center;font-size: 14px;font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;}
+.deam-menu{position:absolute;z-index:66;width:100%;bottom:40px; left:0; text-align:center;}
+.deam-menu span{display: inline-block;width: 130px;}
+.deam-menu span.ruleBtn{margin-right:15px;}
+.deam-menu span img {width: 100%;}
+.attention {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+    z-index: 999;
+    overflow: hidden;
+}
+.attention-con{width:50%;height:auto;position:fixed;top:20%;left:50%;margin:0 0 0 -25%;z-index:999;overflow:hidden}.attention img{width:100%;height:auto}
+.attention-con2 {
+    width: 90%;
+    height: auto;
+	background: #FFF;
+	border-radius:10px;
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    margin: 0 0 0 -5%;
+    z-index: 999;
+    overflow: hidden;
+}
+.attention-title{
+	text-align:center;
+	font-size:2em;
+	font-weight:700;
+	color:#ff6287;
+	margin:0.5em 0px;
+}
+.attention-text{
+	width:90%;
+	max-height:300px;
+	overflow-y:auto;
+	overflow-x:hidden;
+	font-size:1em;
+	margin:0px auto;
+	text-align:center;
+	color:#989898;
+}
+
+.attention-text .deam-input{overflow:auto; background-attachment: fixed; background-repeat: no-repeat; border-style: solid; 
+border-color: #000000; background:rgba(254, 218, 166, 0); outline:none;filter:alpha(opacity=0); border-width:0px;resize: none;-webkit-appearance: none; appearance:none;margin:3px 0px; padding:5px; border-radius:4px; border:2px solid #ffbe5e;width:80%}
+.attention-button{ width:90%; margin:1em auto; text-align:center}
+.attention-button .btn-submit{background-attachment: fixed; background-repeat: no-repeat; border-style: solid; 
+border-color: #000000; background:rgba(254, 218, 166, 0); outline:none;filter:alpha(opacity=0); border-width:0px;resize: none;-webkit-appearance: none; appearance:none; background-color:#ff6287;color:#fff;padding:8px 30px; border-radius:4px; font-size:16px;}
+
+.attention-button .btn-close{background-attachment: fixed; background-repeat: no-repeat; border-style: solid; 
+border-color: #000000; background:rgba(254, 218, 166, 0); outline:none;filter:alpha(opacity=0); border-width:0px;resize: none;-webkit-appearance: none; appearance:none; background-color:#acacac;color:#fff;padding:8px 30px; border-radius:4px; font-size:16px;}
