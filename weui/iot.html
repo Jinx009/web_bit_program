@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <link rel="stylesheet" href="./weui.css">
+    <style>
+        body{
+            width: 98%;
+            margin-left: 1%;
+        }
+        .weui-slider__handler {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 18px;
+            height: 18px;
+            margin-left: -14px;
+            margin-top: -9px;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body ontouchstart>
+    <div class="page" style="margin-top: 30px;">
+        <div class="weui-cell weui-cell_switch">
+            <div class="weui-cell__bd">标题文字</div>
+            <div class="weui-cell__ft">
+                <input class="weui-switch" type="checkbox">
+            </div>
+        </div>
+        <div class="page__bd page__bd_spacing">
+            <div class="weui-slider-box">
+                <div class="weui-slider">
+                    <div id="sliderInner" class="weui-slider__inner">
+                        <div id="sliderTrack" style="width:1%;" class="weui-slider__track"></div>
+                        <div id="sliderHandler" style="left: 1%;" class="weui-slider__handler"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="sliderValue" class="weui-slider-box__value">50</div>
+        </div>
+    </div>
+<script src="./zepto.min.js"></script>
+<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var $sliderTrack = $('#sliderTrack'),
+                $sliderHandler = $('#sliderHandler'),
+                $sliderValue = $('#sliderValue');
+
+        var totalLen = $('#sliderInner').width(),
+                startLeft = 0,
+                startX = 0;
+
+        $sliderHandler
+                .on('touchstart', function (e) {
+                    startLeft = parseInt($sliderHandler.css('left')) * totalLen / 100;
+                    startX = e.changedTouches[0].clientX;
+                })
+                .on('touchmove', function(e){
+                    var dist = startLeft + e.changedTouches[0].clientX - startX,
+                            percent;
+                    dist = dist < 0 ? 0 : dist > totalLen ? totalLen : dist;
+                    percent =  parseInt(dist / totalLen * 100);
+                    $sliderTrack.css('width', percent + '%');
+                    $sliderHandler.css('left', percent + '%');
+                    $sliderValue.text(percent);
+
+                    e.preventDefault();
+                })
+        ;
+    });
+</script>
+</body>
+</html>
