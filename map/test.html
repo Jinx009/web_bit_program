@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+        #allmap{width:60%;height:600px;}
+        p{margin-left:5px; font-size:14px;}
+        .anchorBL{display:none;}
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1aQNZzVasvc5lHlVVLQSemZpX018UEhb"></script>
+    <title>显示全景控件</title>
+</head>
+<body>
+<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+    var map = new BMap.Map('allmap');
+    map.centerAndZoom(new BMap.Point(121.575757,31.120945), 18);
+    map.enableScrollWheelZoom(true);
+    map.setMapStyle({style:'midnight'});
+    // 覆盖区域图层测试
+    map.addTileLayer(new BMap.PanoramaCoverageLayer());
+</script>

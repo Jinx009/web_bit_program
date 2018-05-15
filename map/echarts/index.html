@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-image: url(bg.gif);
+            overflow-x: hidden;
+        }
+        .row{
+            width: 98%;
+            margin-left: 1%;
+        }
+        .col-md-2{
+            margin: 0;
+        }
+        .col-md-3{
+            margin: 0;
+        }
+        .col-md-6{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="row" style="border-bottom: solid 2px rgb(13,69,111)">
+    <div class="col-md-3"  ></div>
+    <div class="col-md-3" ></div>
+    <div class="col-md-3" style="text-align: right;padding-right: -10px;height: 35px;line-height:35px;color: white;font-size: 17px;"  >上海 展为</div>
+    <div class="col-md-3" style="text-align: right;padding-right: 25px;height: 35px;line-height:35px;color: white;font-size: 17px;" >2018-05-10 18:32:00 星期三</div>
+</div>
+<div class="row" style="border-bottom: solid 1px rgb(20,116,196);border-top: solid 1px rgb(20,116,196);margin-top: 5px;">
+    <div class="col-md-2" style="border-right: solid 2px rgb(20,116,196);border-left: solid 2px rgb(20,116,196);text-align: center;height:45px;
+    line-height:45px;vertical-align: middle;color: white;font-size: 19px;" >当日烟感报警:0次</div>
+    <div class="col-md-2"style="border-right: solid 2px rgb(20,116,196);text-align: center;
+    height:45px;line-height:45px;vertical-align: middle;color: white;font-size: 19px;"  >当日违停:0次</div>
+    <div class="col-md-2" style="border-right: solid 2px rgb(20,116,196);text-align: center;
+    height:45px;line-height:45px;vertical-align: middle;color: white;font-size: 19px;"  >当日门禁次数:23次</div>
+    <div class="col-md-2" style="border-right: solid 2px rgb(20,116,196);text-align: center;
+    height:45px;line-height:45px;vertical-align: middle;color: white;font-size: 19px;" >当日看护警报:1次</div>
+    <div class="col-md-2" style="border-right: solid 2px rgb(20,116,196);text-align: center;
+    height:45px;line-height:45px;vertical-align: middle;color: white;font-size: 19px;" >当日看护警报:1次</div>
+    <div class="col-md-2" style="border-right: solid 2px rgb(20,116,196);text-align: center;
+    height:45px;line-height:45px;vertical-align: middle;color: white;font-size: 19px;" >当日看护警报:1次</div>
+</div>
+<div class="row" style="margin-top: 15px;" >
+    <div class="col-md-4" style="text-align: center;border: solid 2px rgb(15,94,146);height: 330px;
+    padding-top: 25px;border-top-left-radius: 65px;border-right: 0px">
+        <div id="container" style="height: 280px;width: 90%;"></div></div>
+    <div class="col-md-8" style="text-align: center;border: solid 2px rgb(15,94,146);height: 330px;
+    padding-top: 25px;border-top-right-radius: 65px;">   <div id="container2" style="height: 280px;width: 100%;"></div></div>
+</div>
+<div class="row" style="margin-top: 15px;" >
+    <div class="col-md-8" style="text-align: center;border: solid 2px rgb(15,94,146);height: 330px;
+    padding-top: 25px;border-bottom-left-radius: 65px;border-right: 0px">
+        <div id="container4" style="height: 280px;width: 90%;"></div></div>
+    <div class="col-md-4" style="text-align: center;border: solid 2px rgb(15,94,146);height: 330px;
+    padding-top: 25px;border-bottom-right-radius: 65px;">   <div id="container3" style="height: 280px;width: 100%;"></div></div>
+</div>
+
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var dom2 = document.getElementById("container2");
+    var myChart2 = echarts.init(dom2);
+    var dom3 = document.getElementById("container3");
+    var myChart3 = echarts.init(dom3);
+    var app = {};
+    option = null;
+    option = {
+        title : {
+            text: '当日烟感警报信息',
+            x:'center',
+            textStyle: {
+                fontWeight: 'normal',              //标题颜色
+                color: 'white'
+            },
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ['已处理','正在处理','未处理'],
+            textStyle: {
+                fontWeight: 'normal',              //标题颜色
+                color: 'white'
+            },
+        },
+        series : [
+            {
+                name: '',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data:[
+                    {value:335, name:'已处理'},
+                    {value:310, name:'正在处理'},
+                    {value:234, name:'未处理'}
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'white',
+                    },
+                },
+            }
+        ]
+    };
+
+    var option2 = {
+        title: {
+            text: '门禁记录',
+            textStyle: {
+                fontWeight: 'normal',              //标题颜色
+                color: 'white'
+            },
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['1号楼','2号楼','3号楼','4号楼','5号楼'],
+            textStyle: {
+                fontWeight: 'normal',              //标题颜色
+                color: 'white'
+            },
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['9:00-10:00','9:00-10:00','9:00-10:00','9:00-10:00','9:00-10:00','9:00-10:00','9:00-10:00'],
+            axisLine:{
+                lineStyle:{
+                    color:'white',
+                    width:1,//这里是为了突出显示加上的
+                }
+            }
+        },
+        yAxis: {
+            type: 'value',
+            axisLine:{
+                lineStyle:{
+                    color:'white',
+                    width:1,//这里是为了突出显示加上的
+                }
+            }
+        },
+        series: [
+            {
+                name:'1号楼',
+                type:'line',
+                stack: '次数',
+                shadowColor: 'white',
+                data:[120, 132, 101, 134, 90, 230, 210],
+            },
+            {
+                name:'2号楼',
+                type:'line',
+                stack: '总量',
+                data:[220, 182, 191, 234, 290, 330, 310],
+            },
+            {
+                name:'3号楼',
+                type:'line',
+                stack: '总量',
+                data:[150, 232, 201, 154, 190, 330, 410],
+            },
+            {
+                name:'4号楼',
+                type:'line',
+                stack: '总量',
+                data:[320, 332, 301, 334, 390, 330, 320],
+            },
+            {
+                name:'5号楼',
+                type:'line',
+                stack: '总量',
+                data:[820, 932, 901, 934, 1290, 1330, 1320],
+            }
+        ],
+    };
+    var option3 = {
+        title: {
+            text: '消防通道占用情况',
+            left: 'center',
+            top: 20,
+            textStyle: {
+                color: 'white'
+            }
+        },
+
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+
+        visualMap: {
+            show: false,
+            min: 0,
+            max: 600,
+            inRange: {
+                colorLightness: [0, 1]
+            }
+        },
+        series : [
+            {
+                name:'占用比例',
+                type:'pie',
+                radius : '55%',
+                center: ['50%', '50%'],
+                data:[
+                    {value:1, name:'上海1'},
+                    {value:1, name:'上海2'},
+                    {value:1, name:'上海3'},
+                    {value:1, name:'上海4'},
+                    {value:2, name:'上海5'}
+                ].sort(function (a, b) { return a.value - b.value; }),
+                roseType: 'radius',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'white'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        },
+                        smooth: 0.2,
+                        length: 10,
+                        length2: 20
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#c23531',
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                },
+
+                animationType: 'scale',
+                animationEasing: 'elasticOut',
+                animationDelay: function (idx) {
+                    return Math.random() * 200;
+                }
+            }
+        ]
+    };
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+    if (option2 && typeof option2 === "object") {
+        myChart2.setOption(option2, true);
+    }
+    if (option3 && typeof option3 === "object") {
+        myChart3.setOption(option3, true);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>code4</title>
+<script src="js/jquery.min.js"></script>
+<style>
+html, body { background: #000; margin: 0; padding:0;}
+canvas { width: 100%; height: 100%; position: absolute; z-index: -1}
+
+/* Demo Buttons Style */
+.codrops-demos {
+	font-size: 0.8em;
+	text-align:center;
+	position:absolute;
+	z-index:99;
+	width:96%;
+}
+
+.codrops-demos a {
+	display: inline-block;
+	margin: 0.35em 0.1em;
+	padding: 0.5em 1.2em;
+	outline: none;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	border-radius: 2px;
+	font-size: 110%;
+	border: 2px solid transparent;
+	color:#fff;
+}
+.show{
+  z-index: 99;
+  text-align: center;
+}
+.codrops-demos a:hover,
+.codrops-demos a.current-demo {
+	border-color: #383a3c;
+}
+</style>
+</head>
+
+<body>
+<div  class="show" style="position: absolute;top:0;left: 0;width: 100%;height: 100%;" >
+  <h1 style="color: white" >智慧社区云平台</h1>
+  <div id="container" style="height: 100%"></div>
+</div>
+<canvas></canvas>
+
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+<script type="text/javascript">
+  var dom = document.getElementById("container");
+  var myChart = echarts.init(dom);
+  var app = {};
+  option = null;
+  option = {
+    xAxis: {},
+    yAxis: {},
+    series: [{
+      symbolSize: 20,
+      data: [
+        [10.0, 8.04],
+        [8.0, 6.95],
+        [13.0, 7.58],
+        [9.0, 8.81],
+        [11.0, 8.33],
+        [14.0, 9.96],
+        [6.0, 7.24],
+        [4.0, 4.26],
+        [12.0, 10.84],
+        [7.0, 4.82],
+        [5.0, 5.68]
+      ],
+      type: 'scatter'
+    }]
+  };
+  ;
+  if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+  }
+</script>
+</body>
+</html>
