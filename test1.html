@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>uuid test</title>
+    <script src="js/jquery1.8.3.min.js"></script>
+    <script>
+        var x = 1;
+        var func = function(){
+            console.log(this.x);
+        }
+        var obj1 = {x:1};
+        var obj2 = {x:2};
+        var obj3 = {x:3};
+        var func1 = func.bind(obj1);
+        func1();
+        var func2 = func.bind(obj1).bind(obj2);
+        func2();
+        var func3 = func.bind(obj1).bind(obj2).bind(obj3);
+        func3();
+    </script>
+</head>
+<body>
+<div id="a" ></div>
+</body>
+</html>
