@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="i-theme-blue">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="description" content="登录界面"/>
+
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' "/>
+     -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; frame-ancestors 'self'; object-src 'self'"/>
+     --> <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src http://112.64.46.113; child-src 'self'; object-src 'none'">
+       -->
+    <title>智慧停车管理平台[生产环境]登录界面</title>
+
+
+    <link rel="shortcut icon" href="iplat.ico" type="image/x-icon">
+    <link rel="stylesheet" id="css-main" href="/ipms/iplatui/assets/css/iplat.ui.bootstrap.min.css">
+    <link href="/ipms/iPlatV6-login.css" rel="stylesheet" type="text/css"/>
+
+
+    <script src="/ipms/kendoui/js/jquery.min.js"></script>
+    <!--[if lte IE 8]>
+    <link href="/ipms/iPlatV6-login-ie.css" rel="stylesheet" type="text/css"/>
+    <script src="/ipms/iplatui/assets/js/polyfills/iplat.ui.ie8.polyfills.min.js"></script>
+    <![endif]-->
+
+    <script src="/ipms/iPlatV6-login.js"></script>
+    <script src="jquery.qrcode.min.js"></script>
+
+</head>
+<body>
+<style>
+    #login[disabled] {
+        background: #bdbdbd !important;
+        cursor: no-drop;
+    }
+</style>
+<div class="main">
+    <div class="wrapper">
+        <div class="content overflow-hidden">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                    <div class="login-block ">
+                        <div class="form-header">
+                            <!--    <div class="ipms-logo"><img src="zzlogo1.png"></div>-->
+<span style="
+                        height:50px;
+                        width:150px;
+                        margin-top: -4.5%;
+                        margin-left: 13%;
+                        background-size: 100%;
+                        color:white;
+                        font-size: 18px;
+                        ">智慧停车管理平台</span>
+
+                            <p class="text-danger">
+
+                            </p>
+                        </div>
+
+                        <form autocomplete="off" class="form-horizontal push-10-t push-10" action="/ipms/login"
+                              method="post" onsubmit="return tovalid()">
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <input class="form-input" type="text"
+                                           value="" id="p_username"
+                                           name="p_username"
+                                           placeholder="用户名"/>
+                                </div>
+                            </div>
+                            <div class="form-group password">
+                                <div class="col-xs-12">
+                                    <input class="form-input" type="password"
+                                           value="" id="p_password"
+                                           name="p_password"
+                                           placeholder="密码"/>
+                                </div>
+                            </div>
+                            <div class="form-group remember">
+                                <div class="col-xs-6">
+
+
+
+
+
+                                </div>
+                                <div class="col-xs-6" style="text-align: right">
+
+                                    <a href="/ipms/web/XS0106">忘记密码？</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-8">
+                                    <input class="form-input" type="text" id="captcha"
+                                           placeholder="验证码"/>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div id="code">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group log-in">
+                                <div class="col-xs-12">
+                                    <button id="login" class="login-btn" type="submit" disabled>登录
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div style="height: 0px;width: 0px;display:none;">
+                            <div style="height:100%;width:33%;float:right; display: none;justify-content: center;align-items: center;">
+
+                                <div id="jichayuanImg" style="height:100px;width:100px;padding:5px;background-color: white;display:none;"></div>
+                            </div>
+                            <div style="height:100%;width:33%;float:right; display: none;justify-content: center;align-items: center;">
+
+                                <div id="SxieguanyuanImg" style="height:100px;width:100px;padding:5px;background-color:white;display:none;"></div>
+                            </div>
+                            <div style="height:100%;width:33%;float:right; display: none;justify-content: center;align-items: center;">
+
+                                <div id="xieguanyuanImg" style="height:100px;width:100px;padding:5px;background-color:white;display:none;"></div>
+                            </div>
+                        </div>
+                        <div style="height: 20px;width: 400px;font-size: 15px;">
+                            <div style="height:100%;width:33%;float:left;display: table-cell;text-align: center;">
+                                (芝柯)协管员
+                            </div>
+                            <div style="height:100%;width:33%;float:left;display: table-cell;text-align: center;">
+                                (思普瑞特)协管员
+                            </div>
+                            <div style="height:100%;width:33%;float:right;display: table-cell;text-align: center;">
+                                稽查员
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="warning-window" style="margin-top: -354px; height: 354px;">
+                        <div class="i-region-header">警告<span class="i-icon i-close"></span>
+                        </div>
+                        <div class="i-region-content">
+                            <div class="col-md-12">
+                                <span class="warning-msg">请使用IE8或Chrome v35及以上浏览器访问</span>
+                            </div>
+                            <div class="col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2" style="padding: 0">
+                                <div class="browser-icon col-md-12" style="padding: 0">
+                                    <div class="col-xs-5">
+                                        <img src="/ipms/iplatui/img/icon_ie.png" width="104" height="101">
+                                    </div>
+                                    <div class="col-xs-5 col-xs-offset-2">
+                                        <img src="/ipms/iplatui/img/icon_chrome.png" width="101" height="101">
+                                    </div>
+                                </div>
+                                <div class="browser-name col-md-12" style="padding: 0">
+                                    <div class="col-xs-5">
+                                        <span class="ie-name">IE</span>
+                                    </div>
+                                    <div class="col-xs-5 col-xs-offset-2">
+                                        <span class="chrome-name">Chrome</span>
+                                    </div>
+                                </div>
+                                <div class="download-browser col-md-12" style="padding: 0">
+                                    <div class="col-xs-5">
+                                        <input class="download-ie download-btn" type="button" value="点击下载"
+                                               onclick="window.open('https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads')"/>
+                                    </div>
+                                    <div class="col-xs-5 col-xs-offset-2">
+                                        <input class="download-chrome download-btn" type="button" value="点击下载"
+                                               onclick="window.open('https://www.google.com/chrome/browser/desktop/index.html')"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                <div class="browser-warning">
+                    <span>请使用IE8或<a href="">Chrome V35</a>及以上浏览器访问</span>
+                </div>
+                <div class="phone-number" style="margin-top: 0px !important;">
+                    <span>运维平台热线  021-60305800 60305801 60305802</span>
+                </div>
+                <div class="copyright-info" style="margin-top: 10px !important;">
+                    <!-- <span>©中科国智科技服务（上海）有限公司</span><br/>-->
+                    <span>Copyright @2003-2018 ZHONGKE GUOZHI Corporation. All Rights Reserved</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="i-overlay"></div>
+</body>
+<!--
+<script>
+    function tovalid(){
+        var go= false;
+        var username = $("#p_username").val();
+        var password = $("#p_password").val();
+        if(username == ""||password == ""){
+            alert("用户名或密码不能为空!")
+            return go;
+        }
+        var pass = window.btoa(password+"zkgz2020");
+
+        $.ajax({
+            url: 'http://112.64.46.113/ipms/service/S_AM_0803',
+            type: 'POST',
+            contentType: "application/json",
+            data: JSON.stringify({ "attr":
+            { 'loginName': username, 'password': pass }
+            }),
+            dataType: "json",
+            async: false,
+        }).done(function (res) {
+            console.log('res',res);
+            if(res.status == 1){
+                go =  true;
+            }else {
+                alert(res.msg);
+            }
+        }).fail(function (res) {
+            console.log('resF',res);
+        });
+        return go;
+
+    }
+</script>
+
+<script>
+
+    $(document).ready(function(){
+
+        if($('#jichayuanImg:has(img)').length !== 0){
+            $('#jichayuanImg img').remove();
+            $('canvas').remove();
+            createQr($('#jichayuanImg'),"http://csnits.com/download80/Insepector.apk");
+        }else{
+            createQr($('#jichayuanImg'),"http://csnits.com/download80/Insepector.apk");
+        }
+        if($('#xieguanyuanImg:has(img)').length !== 0){
+            $('#xieguanyuanImg img').remove();
+            $('canvas').remove();
+            createQr($('#xieguanyuanImg'),"http://csnits.com/download80/JManager.apk");
+        }else{
+            createQr($('#xieguanyuanImg'),"http://csnits.com/download80/JManager.apk");
+        }
+        if($('#SxieguanyuanImg:has(img)').length !== 0){
+            $('#SxieguanyuanImg img').remove();
+            $('canvas').remove();
+            createQr($('#SxieguanyuanImg'),"http://csnits.com/download80/SJManager.apk");
+        }else{
+            createQr($('#SxieguanyuanImg'),"http://csnits.com/download80/SJManager.apk");
+        }
+
+        // 生成二维码
+        function createQr(imgSelector,urlStr){
+            document.createElement('canvas').getContext('2d');
+            var valText = urlStr;
+            var reg = /^[\u0391-\uFFE5]+$/;
+            if(valText !== "" && !reg.test(valText)){
+                imgSelector.qrcode(
+                        {
+                            render:"canvas",
+                            height:90,
+                            width:90,
+                            correctLevel:0,
+                            text:valText
+                        }
+                );
+            }else{
+                imgSelector.qrcode(
+                        {
+                            render:"canvas",
+                            height:90,
+                            width:90,
+                            correctLevel:0,
+                            text:utf16to8(valText)
+                        }
+                );
+            }
+        }
+
+        function utf16to8(str) {
+            var out, i, len, c;
+            out = "";
+            len = str.length;
+            for(i = 0; i < len; i++) {
+                c = str.charCodeAt(i);
+                if ((c >= 0x0001) && (c <= 0x007F)) {
+                    out += str.charAt(i);
+                } else if (c > 0x07FF) {
+                    out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                    out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));
+                    out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));
+                } else {
+                    out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));
+                    out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));
+                }
+            }
+            return out;
+        }
+
+        let option = {
+            el: '#code',
+            width: $("#code").width(),
+            height: $('#captcha').parent().height()
+        };
+        new Captcha(option)
+    });
+
+    // 验证码类
+    class Captcha {
+        constructor({
+                el, // 节点
+                width = 200,    // 验证码宽度
+                height = 100,   // 验证码高度
+                wordList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],   //验证码需要的内容
+                num = 4 // 验证码长度
+        }) {
+            this.el = el;
+            this.width = width;
+            this.height = height;
+            this.wordList = wordList;
+            this.num = num;
+            this.wordWidth = width * .9 / num;   // 每个字所占最大宽度
+
+            this.$ = document.querySelector(el)
+            this.result = [];   // 结果集，用于验证是否一致
+
+            this.LINELENGTH = 10;   // 随机线条数量
+
+            this.init();
+        }
+
+        // 执行验证码绘制
+        init() {
+            this.createCanvas();
+            // 保存当前状态
+            this.write()
+            // 添加点击功能
+            this.canvas.addEventListener('click', () => {
+                $("#captcha").val("");
+            this.rewrite();
+            $("#login").attr("disabled","disabled")
+        }, false);
+
+            // 增加验证
+            $("#captcha").on('keyup',()=>{
+                let input = $("#captcha").val();
+            if(input.length<4) {
+                $("#login").attr("disabled","disabled");
+                return;
+            };
+            if(input === this.result){
+                $("#login").removeAttr("disabled")
+            }else{
+                alert("验证码输入错误");
+                $("#captcha").val("");
+                this.rewrite();
+                $("#login").attr("disabled","disabled")
+            }
+        })
+        }
+
+        // 在当前框中生成canvas标签
+        createCanvas() {
+            this.canvas = document.createElement('canvas');
+            let canvas = this.canvas;
+            canvas.width = this.width;
+            canvas.height = this.height;
+            canvas.style.background = "rgb(240,240,240)";
+            canvas.style.cursor = 'pointer';
+            canvas.style.borderRadius = '3px';
+            this.$.appendChild(canvas);
+            this.context = canvas.getContext('2d');
+
+            // 设置字体样式
+            this.context.font = this.wordWidth+`px bold 微软雅黑`
+        }
+
+        // 生成随机错乱线条
+        createLine() {
+            for (let i = 0; i < this.LINELENGTH; i++) {
+                let [x, y] = [Math.random() * this.width, Math.random() * this.height]
+                let [x1, y1] = [Math.random() * this.width, Math.random() * this.height]
+                this.context.beginPath();
+                this.context.moveTo(x,y)
+                this.context.lineTo(x1,y1)
+                this.context.strokeStyle = this.getRandomColor()
+                this.context.stroke()
+            }
+
+        }
+
+        getRandomColor() {
+            return 'rgb('+Math.floor(Math.random() * 256)+','+Math.floor(Math.random() * 256)+','+Math.floor(Math.random() * 256)+')'
+        }
+
+        // 生成单个验证码
+        createWord() {
+            // 定义颜色
+            let word = this.wordList[Math.floor(Math.random() * 10)]
+            this.result.push(word)
+            this.context.fillStyle = this.getRandomColor();
+            this.context.fillText(word, this.wordWidth * .5, this.height * .9)
+        }
+
+        // 写入入口，并改变状态
+        write() {
+            this.result = [];
+            this.createLine();
+            for (let i = 0; i < this.num; i++) {
+                this.context.save();
+                // 先平移旋转
+                this.context.translate(i * this.wordWidth + this.wordWidth / 2, this.height / 2)
+                this.context.rotate(Math.floor(Math.random() * 60 - 30) * Math.PI / 180)
+                // 再把写入的初始角度转正
+                this.context.translate(-this.wordWidth / 2, -this.height / 2)
+                // 缩放
+                let s = 1 - Math.random() * .2
+                this.context.scale(s, s)
+                this.createWord()
+                this.context.restore();
+            }
+            this.result = this.result.join('')
+        }
+
+        // 重绘
+        rewrite() {
+            this.context.clearRect(0, 0, this.width, this.height)
+            this.write()
+        }
+
+    }
+
+</script>
+-->
+
+</html>

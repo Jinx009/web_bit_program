@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>散点图和气泡图</title>
+    <style>
+        .container {
+            margin: 30px auto;
+            width: 600px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500"></canvas>
+<script>
+    var canvas=document.getElementById("myCanvas");
+    var ctx=canvas.getContext("2d");
+
+    ctx.beginPath();
+    for(var i=0; i<100; i++){
+        var cx = Math.floor(Math.random() * canvas.width);
+        var cy = Math.floor(Math.random() * canvas.height);
+        ctx.moveTo(cx,cy);
+        ctx.arc(cx,cy,1,0,Math.PI*2);
+    }
+    ctx.fillStyle='#26963c';
+    ctx.fill();
+</script>
+</body>
+</html>

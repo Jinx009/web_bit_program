@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑坡曲线</title>
+    <script src="jquery.min.js"></script>
+    <script src="raphael.js"></script>
+    <script>
+        var paper;
+        $(function(){
+            paper = new Raphael(document.getElementById("paper"),1000, 800);
+            var line = paper.path("M 200 100 L 700 100 L 700 500 L 200 500 L 200 100").attr({
+                'stroke-width': 2
+            });
+            var x1 = 300;
+            var x2 = 500;
+            var y1 = 200;
+            var y2 = 300;
+            var rect1 = paper.rect(x1,y1,100,100).attr({
+                'stroke-width': 2,
+                'fill':'red',
+                stroke:"red"
+            });
+            var rect2 = paper.rect(x2,y2,100,100).attr({
+                'stroke-width': 2,
+                'fill':'red',
+                stroke:"red"
+            });
+            var line1,line2,line3,line4,line5,line6,line7;
+            line1 = paper.path("M 200 200 L "+x1+" "+y1+" L "+(x1+100)+" "+y1+" L 500 200 L 600 200 L 700 200").attr({
+                'stroke-width': 1
+            });
+            line2 = paper.path("M 200 300 L "+x1+" "+(y1+100)+" L "+(x1+100)+" "+(y1+100)+" L "+x2+" "+y2+" L "+(x2+100)+" "+y2+"  L 700 300").attr({
+                'stroke-width': 1
+            });
+            line3 = paper.path("M 200 400 L 300 400 L 400 400 L "+x2+" "+(y2+100)+" L "+(x2+100)+" "+(y2+100)+"  L 700 400").attr({
+                'stroke-width': 1
+            });
+            line4 = paper.path("M 300 100 L  "+x1+" "+y1+" L "+x1+" "+(y1+100)+" L 300 400 L 300 500").attr({
+                'stroke-width': 1
+            });
+            function move(){
+
+            }
+
+        })
+    </script>
+</head>
+<body>
+<div id="paper" style="width:600px;height:600px;margin-top: 80px;margin-left: 200px;"></div>
+<a onclick="move()">测试</a>
+</body>
+</html>

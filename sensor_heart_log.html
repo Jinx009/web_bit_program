@@ -6,101 +6,59 @@
     <script src="js/jquery1.8.3.min.js"></script>
     <script>
 
-        $(function(){
+        $(function () {
             var str = [
-                {"mac":"000119031000027F","address":"海防路（西苏州路--淮安路）JAZ-055","park_number":"JAZ-05507","num":"0","status_time":"2019/9/14 11:58:14"},
-                {"mac":"00011903100001EB","address":"交通路-（虬江路-交通路）ZB-001","park_number":"ZB-00117","num":"0","status_time":"2019/9/13 3:10:25"},
-                {"mac":"0001190310000234","address":"交通路-（虬江路-交通路）ZB-001","park_number":"ZB-00121","num":"0","status_time":"2019/8/9 15:31:28"},
-                {"mac":"00011806140002ED","address":"交通路-（虬江路-交通路）ZB-001","park_number":"ZB-00128","num":"0","status_time":"2019/9/12 17:45:25"},
-                {"mac":"000119031000019B","address":"交通路-（虬江路-交通路）ZB-001","park_number":"ZB-00130","num":"0","status_time":"2019/8/11 10:13:07"},
-                {"mac":"000119031000022B","address":"交通路-（虬江路-交通路）ZB-001","park_number":"ZB-00135","num":"0","status_time":"2019/6/11 8:57:05"},
-                {"mac":"00011903100002E3","address":"交通路-（虬江路-交通路）ZB-001","park_number":"ZB-00140","num":"0","status_time":"2019/8/25 23:48:37"},
-                {"mac":"000119031000007D","address":"新路-（虬江路-京江路）ZB-014","park_number":"ZB-01416","num":"0","status_time":"2019/7/3 17:55:14"},
-                {"mac":"000119031000008D","address":"新路-（虬江路-京江路）ZB-014","park_number":"ZB-01421","num":"0","status_time":"2019/6/27 3:01:58"},
-                {"mac":"0001190310000009","address":"会文路-（虬江路-永兴路）ZB-016","park_number":"ZB-01601","num":"0","status_time":"2019/5/31 10:26:23"},
-                {"mac":"000119031000003B","address":"中华新路-（西藏北路-断头路）ZB-020","park_number":"ZB-02021","num":"0","status_time":"2019/9/6 19:32:33"},
-                {"mac":"0001180614000139","address":"恒丰路路-（光复路-恒丰路桥北侧）ZB-026","park_number":"ZB-026018","num":"0","status_time":"2018/8/23 9:36:50"},
-                {"mac":"00011806140001DD","address":"恒丰路路-（光复路-恒丰路桥北侧）ZB-026","park_number":"ZB-026021","num":"0","status_time":"2018/8/6 13:01:37"},
-                {"mac":"00011806140000B8","address":"恒丰路路-（光复路-恒丰路桥北侧）ZB-026","park_number":"ZB-026029","num":"0","status_time":"2019/8/17 22:43:40"},
-                {"mac":"000119031000001E","address":"共和路-（华康路-华盛路）ZB-031-2","park_number":"ZB-03106","num":"0","status_time":"2019/7/28 6:32:39"},
-                {"mac":"0001180614000018","address":"共和路-（华康路-华盛路）ZB-031-2","park_number":"ZB-03119","num":"0","status_time":"2019/8/30 10:12:02"},
-                {"mac":"00011903100000CD","address":"ZB031","park_number":"ZB-03134","num":"0","status_time":"2019/9/13 9:25:37"},
-                {"mac":"0001190310000130","address":"长安路-（梅园路-轨交1号线汉中路站出口）ZB-048","park_number":"ZB-04804","num":"0","status_time":"2019/8/18 14:34:08"},
-                {"mac":"000119031000011E","address":"长安路-（梅园路-轨交1号线汉中路站出口）ZB-048","park_number":"ZB-04806","num":"0","status_time":"2019/9/12 9:09:24"},
-                {"mac":"00011903100002C2","address":"高平路-（阳城路-晋城路）ZBL-021","park_number":"ZBL-02123","num":"0","status_time":"2019/9/9 11:01:37"},
-                {"mac":"0001190310000193","address":"高平路-（阳城路-晋城路）ZBL-021","park_number":"ZBL-02127","num":"0","status_time":"2019/8/28 20:42:53"},
-                {"mac":"00011903100002BD","address":"高平路-（阳城路-晋城路）ZBL-021","park_number":"ZBL-02128","num":"0","status_time":"2019/9/11 12:04:42"},
-                {"mac":"000119031000020F","address":"临汾路-（长临路-断头路）ZBW-002","park_number":"ZBW-00205","num":"0","status_time":"2019/8/12 11:00:13"},
-                {"mac":"0001190310000229","address":"临汾路-（长临路-断头路）ZBW-002","park_number":"ZBW-00238","num":"0","status_time":"2019/8/16 6:25:17"},
-                {"mac":"0001190310000078","address":"洛川东路-（600号-880号）ZBW-003","park_number":"ZBW-00306","num":"0","status_time":"2019/9/3 20:13:30"},
-                {"mac":"000119031000008F","address":"洛川东路-（600号-880号）ZBW-003","park_number":"ZBW-00321","num":"0","status_time":"2019/9/13 23:17:13"},
-                {"mac":"000119031000019C","address":"洛川东路-（600号-880号）ZBW-003","park_number":"ZBW-00335","num":"0","status_time":"2019/9/7 21:45:18"},
-                {"mac":"0001190310000053","address":"洛川东路-（600号-880号）ZBW-003","park_number":"ZBW-00342","num":"0","status_time":"2019/3/19 13:25:54"},
-                {"mac":"0001190310000097","address":"洛川东路-（600号-880号）ZBW-003","park_number":"ZBW-00343","num":"0","status_time":"2019/9/12 18:27:56"},
-                {"mac":"000119031000007A","address":"洛川东路-（600号-880号）ZBW-003","park_number":"ZBW-00345","num":"0","status_time":"2019/9/2 11:59:43"},
-                {"mac":"000119031000025A","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00501","num":"0","status_time":"2019/9/1 9:03:21"},
-                {"mac":"0001190310000260","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00502","num":"0","status_time":"2019/8/27 16:29:54"},
-                {"mac":"00011903100002A8","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00503","num":"0","status_time":"2019/8/27 16:06:55"},
-                {"mac":"000119031000028E","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00504","num":"0","status_time":"2019/8/28 13:49:29"},
-                {"mac":"0001190310000278","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00505","num":"0","status_time":"2019/8/26 10:04:16"},
-                {"mac":"000119031000025B","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00506","num":"0","status_time":"2019/8/27 15:55:42"},
-                {"mac":"00011903100002EA","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00507","num":"0","status_time":"2019/8/27 15:55:45"},
-                {"mac":"00011903100001B0","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00508","num":"0","status_time":"2019/8/28 3:46:14"},
-                {"mac":"00011903100000E1","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00509","num":"0","status_time":"2019/8/17 11:54:49"},
-                {"mac":"00011903100001EC","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00510","num":"0","status_time":"2019/8/28 1:29:43"},
-                {"mac":"00011903100000D2","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00511","num":"0","status_time":"2019/8/25 10:02:12"},
-                {"mac":"0001190310000274","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00512","num":"0","status_time":"2019/8/27 12:54:11"},
-                {"mac":"0001190310000104","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00513","num":"0","status_time":"2019/8/24 13:41:59"},
-                {"mac":"00011903100000C4","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00514","num":"0","status_time":"2019/8/27 14:13:25"},
-                {"mac":"00011903100002AF","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00515","num":"0","status_time":"2019/8/27 13:28:52"},
-                {"mac":"0001190310000204","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00516","num":"0","status_time":"2019/8/27 16:29:37"},
-                {"mac":"000119031000012C","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00517","num":"0","status_time":"2019/8/27 9:05:32"},
-                {"mac":"00011903100002D0","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00518","num":"0","status_time":"2019/8/28 6:20:17"},
-                {"mac":"0001190310000205","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00519","num":"0","status_time":"2019/8/27 17:51:04"},
-                {"mac":"00011903100002F5","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00520","num":"0","status_time":"2019/8/27 17:50:40"},
-                {"mac":"00011903100001A9","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00521","num":"0","status_time":"2019/8/27 17:43:02"},
-                {"mac":"0001190310000209","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00525","num":"0","status_time":"2019/8/28 6:02:45"},
-                {"mac":"00011903100002F2","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00526","num":"0","status_time":"2019/9/14 11:37:29"},
-                {"mac":"0001190310000279","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00538","num":"0","status_time":"2019/3/23 11:05:37"},
-                {"mac":"00011903100000DA","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00539","num":"0","status_time":"2019/9/5 21:15:20"},
-                {"mac":"00011903100000E4","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00540","num":"0","status_time":"2019/8/29 18:12:17"},
-                {"mac":"0001190310000141","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00541","num":"0","status_time":"2019/8/27 21:28:59"},
-                {"mac":"0001190310000210","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00542","num":"0","status_time":"2019/3/22 13:59:56"},
-                {"mac":"00011903100002A6","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00543","num":"0","status_time":"2019/8/27 16:33:54"},
-                {"mac":"0001190310000281","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00544","num":"0","status_time":"2019/8/29 0:58:28"},
-                {"mac":"0001190310000283","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00545","num":"0","status_time":"2019/8/27 6:41:14"},
-                {"mac":"0001190310000290","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00546","num":"0","status_time":"2019/3/23 13:01:55"},
-                {"mac":"000119031000028A","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00547","num":"0","status_time":"2019/8/27 13:57:02"},
-                {"mac":"000119031000028F","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00548","num":"0","status_time":"2019/8/15 18:19:45"},
-                {"mac":"0001190310000277","address":"安业路（汾西路--保德路）ZBW-005","park_number":"ZBW-00549","num":"0","status_time":"2019/8/10 8:57:52"},
-                {"mac":"000119031000001D","address":"运城路-（广中西路-灵石路）ZBW-010","park_number":"ZBW-01001","num":"0","status_time":"2019/9/5 16:27:14"},
-                {"mac":"000119031000004A","address":"运城路-（广中西路-灵石路）ZBW-010","park_number":"ZBW-01003","num":"0","status_time":"2019/8/31 11:43:10"},
-                {"mac":"0001190310000020","address":"运城路-（广中西路-灵石路）ZBW-010","park_number":"ZBW-01006","num":"0","status_time":"2019/8/20 10:21:05"},
-                {"mac":"0001190310000014","address":"运城路-（广中西路-灵石路）ZBW-010","park_number":"ZBW-01009","num":"0","status_time":"2019/8/24 13:08:03"},
-                {"mac":"0001190310000051","address":"运城路-（广中西路-灵石路）ZBW-010","park_number":"ZBW-01010","num":"0","status_time":"2019/8/12 13:09:00"},
-                {"mac":"0001190310000036","address":"运城路-（广中西路-灵石路）ZBW-010","park_number":"ZBW-01011","num":"0","status_time":"2019/8/17 4:21:53"},
-                {"mac":"0001190310000029","address":"运城路-（广中西路-灵石路）ZBW-010","park_number":"ZBW-01012","num":"0","status_time":"2019/8/30 9:32:35"},
-                {"mac":"00011903100000B2","address":"老沪太路-（运城路-沪太路）ZBW-014","park_number":"ZBW-01404","num":"0","status_time":"2019/9/9 13:13:14"},
-                {"mac":"0001190310000055","address":"老沪太路-（运城路-沪太路）ZBW-014","park_number":"ZBW-01405","num":"0","status_time":"2019/8/31 10:40:53"},
-                {"mac":"00011903100000B9","address":"老沪太路-（运城路-沪太路）ZBW-014","park_number":"ZBW-01406","num":"0","status_time":"2019/4/25 15:47:56"},
-                {"mac":"0001190310000069","address":"老沪太路-（运城路-沪太路）ZBW-014","park_number":"ZBW-01407","num":"0","status_time":"2019/3/18 14:56:56"},
-                {"mac":"000119031000008C","address":"老沪太路-（运城路-沪太路）ZBW-014","park_number":"ZBW-01416","num":"0","status_time":"2019/8/19 11:21:28"},
-                {"mac":"00011903100000C3","address":"老沪太路-（运城路-沪太路）ZBW-014","park_number":"ZBW-01422","num":"0","status_time":"2019/8/19 8:50:26"},
-                {"mac":"00011903100000A9","address":"运城路-（宜川路-大宁路）ZBW-020","park_number":"ZBW-02031","num":"0","status_time":"2019/4/30 18:04:03"},
-                {"mac":"00011903100001C4","address":"晋城路-（原平路-断头路路）ZBW-044","park_number":"ZBW-04401","num":"0","status_time":"2019/8/30 14:18:53"},
-                {"mac":"00011903100001D4","address":"晋城路-（原平路-断头路路）ZBW-044","park_number":"ZBW-04434","num":"0","status_time":"2019/9/7 14:19:51"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/18/19 1:50:52 AM"},
+                {"data": "2.5 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/19/19 1:52:42 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/20/19 1:10:54 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/21/19 1:50:07 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/22/19 1:50:20 AM"},
+                {"data": "2.5 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/23/19 1:11:32 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/24/19 1:50:45 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/25/19 1:50:57 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/26/19 1:51:10 AM"},
+                {"data": "2.3 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/27/19 1:50:31 AM"},
+                {"data": "2.3 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/28/19 1:50:43 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/29/19 1:51:23 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/30/19 1:51:36 AM"},
+                {"data": "2.3 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "10/31/19 1:51:49 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/1/19 1:52:01 AM"},
+                {"data": "2.5 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/2/19 1:51:20 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/3/19 1:48:49 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/4/19 1:49:01 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/5/19 1:49:14 AM"},
+                {"data": "2.3 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/6/19 1:42:51 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/7/19 1:13:43 AM"},
+                {"data": "2.5 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/8/19 1:44:23 AM"},
+                {"data": "2.3 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/9/19 1:05:35 AM"},
+                {"data": "2.3 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/10/19 1:44:25 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/11/19 1:44:37 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/12/19 1:44:50 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/13/19 1:45:03 AM"},
+                {"data": "2.4 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/14/19 1:45:15 AM"},
+                {"data": "1.9 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/15/19 1:05:38 AM"},
+                {"data": "2.3 mm | 0 RSSI", "device_number": "143B939FBE56", "time": "11/16/19 1:44:46 AM"},
+                {"data": "2.3 mm | 19 RSSI", "device_number": "143B939FBE56", "time": "11/17/19 1:05:58 AM"},
+                {"data": "2.4 mm | 51 RSSI", "device_number": "143B939FBE56", "time": "11/18/19 1:04:22 AM"}
 
             ];
+            var a = [];
+            for (var i = 0; i < str.length; i++) {
 
-            var res = '';
-            for(var i = 0;i<str.length;i++){
-                res+= " '"+str[i].mac+"', ";
+                var b = {};
+                var d = str[i].data;
+                b.data = d.split('|')[0];
+                b.mac = str[i].device_number;
+                b.time = str[i].time;
+                a.push(b);
+
             }
-            $('#a').html(res);
+
+            $('#a').html(JSON.stringify(a));
         });
     </script>
 </head>
 <body>
-<div id="a" ></div>
+<div id="a"></div>
 </body>
 </html>

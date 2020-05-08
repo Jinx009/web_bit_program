@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/raphael/json-compiled.js" />
+        <item url="file://$PROJECT_DIR$/echart/es-compiled.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/raphael/json-compiled.js" />
+      <root url="file://$PROJECT_DIR$/echart/es-compiled.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
