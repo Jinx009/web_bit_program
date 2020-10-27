@@ -4,17 +4,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>绘制箭头测试</title>
     <script src="jquery.min.js" ></script>
-    <script src="query-ui.min.js" ></script>
+    <script src="jquery-ui.min.js" ></script>
     <script src="raphael.js" ></script>
     <script>
         var paper;
         $(function()
         {
-            paper = Raphael("paper",500,500);
-            var path = paper.path("M 50 60 80 130");
-            var path_arrow = paper.path(drawArrow(path.id));//生成的每一块图形都拥有唯一标示的id
-            //另外一个API自带的线的arrow-end属性在多数情况下试用
+//            paper = Raphael("paper",500,500);
+//            var path = paper.path("M 50 60 80 130");
+//            var path_arrow = paper.path(drawArrow(path.id));//生成的每一块图形都拥有唯一标示的id
+//            //另外一个API自带的线的arrow-end属性在多数情况下试用
             //效果等同于生成path_arrow 示例： path.attr({'arrow-end':'classic-wide-long'})
+            console.log('48000019180000120011676400b56201075c00d866d018e407050713260d3701000000c1ea01000383ea207749f83de09251124386070068fb07000e0000000a00000002000000fe0900000002000000000000004b00000080a8120164000000dcca493200000000000000006a07'.length)
+            console.log('48000019180000120011676400b56201075c00c06ad018e407050713260e3702000000c8e901000383ea207849f83de19251123a8607005efb07000e0000000a000000fffe0500000002000000000000002e00000080a8120164000000dcca49320000000000000000262c'.length)
+            console.log('48000019180000120011676400b56201075c00a86ed018e407050713260f3701000000cfe801000383ea207849f83de09251123f86070064fb07000e0000000a000000fe000000000400000002000000000000002a00000080a8120164000000dcca493200000000000000002111'.length)
+            console.log('48000019180000120011676400b56201075c009072d018e40705071326103701000000d6e701000383ea207849f83de09251124486070068fb07000e0000000a0000000200000000000000fd02000000000000002900000080a8120164000000dcca4932000000000000000019b8'.length)
+            console.log('48000019180000120011676400b56201075c007876d018e40705071326113701000000dde601000383ea207749f83de19251123f86070063fb07000e0000000a00000007000000fe0500000007000000000000003b00000080a8120164000000dcca493200000000000000002447'.length)
+            console.log('48000019180000120022652c00b5620114240000000000b83bd31a32507d48aca89f12b207010001e000000f2a0404c1390100688501002aa6'.length)
         })
         /*
          * 自己绘制线段箭头
@@ -48,7 +54,7 @@
 </head>
 
 <body>
-<div id="paper">.
+<div id="paper">
 </div>
 </body>
 </html>

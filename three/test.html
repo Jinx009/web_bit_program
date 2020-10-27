@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="three.js"></script>
+    <script type="text/javascript" src="js/loaders/FBXLoader.js"></script>
+    <script type="text/javascript" src="js/libs/inflate.min.js"></script>
+    <script type="text/javascript">
+        var scene = null;
+        var camera = null;
+        var renderer = null;
+
+        var mesh = null;
+        var id = null;
+
+
+        function init() {
+            renderer = new THREE.WebGLRenderer({//渲染器
+                canvas: document.getElementById('mainCanvas')//画布
+            });
+            renderer.setClearColor(0x000000);//画布颜色
+            scene = new THREE.Scene();//创建场景
+
+            camera = new THREE.OrthographicCamera(-5, 5, 3.75, -3.75, 0.1, 100);//正交投影照相机
+            camera.position.set(15, 25, 25);//相机位置
+            camera.lookAt(new THREE.Vector3(0, 2, 0));//lookAt()设置相机所看的位置
+            scene.add(camera);//把相机添加到场景中
+
+            var loader = new THREE.FBXLoader();
+            texturePlante = THREE.ImageUtils.loadTexture("xzf.jpg",null,function(t){});//模型贴图
+            var loader =  new THREE.FBXLoader();
+            loader.load('xzf.fbx', function ( object) { //fbx模型
+
+                object.traverse( function ( child ) {
+
+                    var material = new THREE.MeshPhongMaterial({
+                        map:texturePlante
+                    });
+                    child.material=material;
+                    if ( child.isMesh ) {
+                        child.castShadow = true;
+                        child.receiveShadow = true;
+
+                    };
+
+                });
+                object.scale.set(0.5,0.5,0.5);
+                object.position.set(0,0,0);
+                scene.add( object );
+
+            });
+            var light = new THREE.DirectionalLight(0xffffff);//光源颜色
+            light.position.set(20, 10, 5);//光源位置
+            scene.add(light);//光源添加到场景中
+            renderer.render(scene, camera);
+//            id = setInterval(draw, 20);//每隔20s重绘一次
+        }
+
+    </script>
+</head>
+
+<body onload="init()">
+<canvas id="mainCanvas" width="800px" height="600px" ></canvas>
+</body>
+</html>
